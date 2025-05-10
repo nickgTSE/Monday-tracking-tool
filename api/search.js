@@ -36,8 +36,8 @@ module.exports = async (req, res) => {
   const items = json.data?.boards[0]?.items || [];
 
   for (let item of items) {
-    const shipment = item.column_values.find(col => col.title.toLowerCase() === 'shipment');
-    const loadLoc = item.column_values.find(col => col.title.toLowerCase() === 'load location');
+    const Shipment = item.column_values.find(col => col.title.toLowerCase() === 'Shipment');
+    const loadLoc = item.column_values.find(col => col.title.toLowerCase() === 'Load Location');
 
     if (shipment?.text?.toLowerCase().includes(queryParam)) {
       return res.json({ success: true, result: loadLoc?.text || "(No Load Location found)" });
